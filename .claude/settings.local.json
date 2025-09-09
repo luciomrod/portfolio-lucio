@@ -6,7 +6,10 @@
       "Bash(npm update:*)",
       "Bash(npm uninstall:*)",
       "Bash(npm run dev:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(taskkill:*)",
+      "Bash(\"taskkill\" \"/F\" \"/IM\" \"node.exe\")",
+      "Bash(cmd /c:*)"
     ],
     "deny": [],
     "ask": []
