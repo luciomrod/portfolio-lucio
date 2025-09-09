@@ -11,23 +11,25 @@ export default function MatrixLoading({ onComplete }: MatrixLoadingProps) {
   const [showName, setShowName] = useState(false)
   const [showSubtitle, setShowSubtitle] = useState(false)
   const [phase, setPhase] = useState(0)
+  const [isExiting, setIsExiting] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowName(true), 1200)
-    const subtitleTimer = setTimeout(() => setShowSubtitle(true), 3500)
+    const timer = setTimeout(() => setShowName(true), 800)
+    const subtitleTimer = setTimeout(() => setShowSubtitle(true), 2000)
     const phaseTimer = setInterval(() => {
       setPhase(prev => (prev + 1) % 4)
-    }, 1200)
+    }, 800)
     const progressTimer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressTimer)
-          setTimeout(onComplete, 3000)
+          setIsExiting(true)
+          setTimeout(onComplete, 2500)
           return 100
         }
-        return prev + 1
+        return prev + 2
       })
-    }, 100)
+    }, 50)
 
     return () => {
       clearTimeout(timer)
@@ -72,12 +74,12 @@ export default function MatrixLoading({ onComplete }: MatrixLoadingProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 matrix-bg flex items-center justify-center overflow-hidden">
+    <div className={`fixed inset-0 z-50 matrix-bg flex items-center justify-center overflow-hidden ${isExiting ? 'loading-exit-bg' : ''}`}>
       {/* Code Rain Effect */}
-      <div className="absolute inset-0">{generateCodeRain()}</div>
+      <div className={`absolute inset-0 ${isExiting ? 'content-exit' : ''}`}>{generateCodeRain()}</div>
 
       {/* Loading Content */}
-      <div className="relative z-10 text-center">
+      <div className={`relative z-10 text-center ${isExiting ? 'content-exit' : ''}`}>
         {showName && (
           <div className="mb-6 md:mb-8 smooth-entrance terminal-bg px-4 md:px-0">
             <div className="font-mono space-y-2 md:space-y-3 max-w-2xl mx-auto">

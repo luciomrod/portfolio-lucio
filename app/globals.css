@@ -279,6 +279,135 @@
   }
 }
 
+@keyframes exit-to-hero {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0) translateZ(0);
+  }
+  25% {
+    opacity: 0.9;
+    transform: scale(1.01) translateY(-5px) translateZ(0);
+  }
+  45% {
+    opacity: 0.7;
+    transform: scale(1.03) translateY(-10px) translateZ(0);
+  }
+  65% {
+    opacity: 0.5;
+    transform: scale(1.06) translateY(-15px) translateZ(0);
+  }
+  80% {
+    opacity: 0.25;
+    transform: scale(1.1) translateY(-25px) translateZ(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.15) translateY(-40px) translateZ(0);
+  }
+}
+
+@keyframes exit-to-hero-bg {
+  0% {
+    background: 
+      linear-gradient(135deg, #1E1E1E 0%, #252526 50%, #1E1E1E 100%),
+      radial-gradient(circle at 30% 40%, rgba(86, 156, 214, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(206, 145, 120, 0.04) 0%, transparent 50%);
+  }
+  20% {
+    background: 
+      linear-gradient(135deg, #1E1E1E 0%, #252526 50%, #1E1E1E 100%),
+      radial-gradient(ellipse at 50% 120%, oklch(0.08 0.03 240) 0%, transparent 20%);
+  }
+  40% {
+    background: 
+      linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(37, 37, 38, 0.8) 100%),
+      radial-gradient(ellipse at 50% 100%, oklch(0.1 0.04 240) 0%, oklch(0.08 0 0) 30%, transparent 50%);
+  }
+  60% {
+    background: 
+      linear-gradient(135deg, rgba(30, 30, 30, 0.6) 0%, rgba(37, 37, 38, 0.5) 100%),
+      radial-gradient(ellipse at 50% 80%, oklch(0.12 0.05 240) 0%, oklch(0.08 0 0) 40%, transparent 70%);
+  }
+  80% {
+    background: 
+      linear-gradient(135deg, rgba(30, 30, 30, 0.3) 0%, rgba(37, 37, 38, 0.2) 100%),
+      radial-gradient(ellipse at 50% 60%, oklch(0.12 0.05 240) 0%, oklch(0.08 0 0) 45%, transparent 80%);
+  }
+  100% {
+    background: 
+      radial-gradient(ellipse at top, oklch(0.12 0.05 240) 0%, oklch(0.08 0 0) 50%);
+  }
+}
+
+@keyframes exit-to-hero-parallax {
+  0% {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(24px);
+  }
+  20% {
+    background: 
+      rgba(0, 0, 0, 0.9),
+      radial-gradient(ellipse at 50% 120%, oklch(0.08 0.03 240 / 0.3) 0%, transparent 25%);
+    backdrop-filter: blur(20px);
+  }
+  40% {
+    background: 
+      rgba(0, 0, 0, 0.8),
+      radial-gradient(ellipse at 50% 100%, oklch(0.1 0.04 240 / 0.5) 0%, oklch(0.08 0 0 / 0.7) 35%, transparent 60%);
+    backdrop-filter: blur(16px);
+  }
+  60% {
+    background: 
+      rgba(0, 0, 0, 0.6),
+      radial-gradient(ellipse at 50% 80%, oklch(0.12 0.05 240 / 0.7) 0%, oklch(0.08 0 0 / 0.5) 45%, transparent 75%);
+    backdrop-filter: blur(12px);
+  }
+  80% {
+    background: 
+      rgba(0, 0, 0, 0.3),
+      radial-gradient(ellipse at 50% 60%, oklch(0.12 0.05 240 / 0.8) 0%, oklch(0.08 0 0 / 0.4) 50%, transparent 85%);
+    backdrop-filter: blur(6px);
+  }
+  100% {
+    background: 
+      radial-gradient(ellipse at top, oklch(0.12 0.05 240) 0%, oklch(0.08 0 0) 50%);
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes content-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+  30% {
+    opacity: 0.9;
+    transform: translateY(-8px) scale(1.01);
+    filter: blur(0.3px);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-15px) scale(1.03);
+    filter: blur(1px);
+  }
+  70% {
+    opacity: 0.3;
+    transform: translateY(-25px) scale(1.06);
+    filter: blur(2px);
+  }
+  85% {
+    opacity: 0.1;
+    transform: translateY(-35px) scale(1.08);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(1.1);
+    filter: blur(5px);
+  }
+}
+
 /* Clases para efectos de código */
 
 @keyframes fade-pulse {
@@ -313,7 +442,7 @@
   overflow: hidden;
   border-right: 2px solid #D4D4D4;
   white-space: nowrap;
-  animation: typewriter 4s steps(30, end), blink-cursor 1.2s step-end infinite;
+  animation: typewriter 2.5s steps(25, end), blink-cursor 1.2s step-end infinite;
   font-family: var(--font-mono);
   font-weight: 500;
   max-width: 100%;
@@ -323,7 +452,7 @@
   overflow: hidden;
   border-right: 2px solid #6A9955;
   white-space: nowrap;
-  animation: typewriter 5s steps(45, end), blink-cursor 1.5s step-end infinite;
+  animation: typewriter 3s steps(35, end), blink-cursor 1.5s step-end infinite;
   font-family: var(--font-mono);
   font-weight: 400;
   max-width: 100%;
@@ -332,12 +461,12 @@
 @media (max-width: 768px) {
   .typewriter {
     border-right-width: 1px;
-    animation: typewriter 2.5s steps(20, end), blink-cursor 1s step-end infinite;
+    animation: typewriter 2s steps(20, end), blink-cursor 1s step-end infinite;
   }
   
   .typewriter-slow {
     border-right-width: 1px;
-    animation: typewriter 3.5s steps(30, end), blink-cursor 1.2s step-end infinite;
+    animation: typewriter 2.5s steps(25, end), blink-cursor 1.2s step-end infinite;
   }
 }
 
@@ -574,6 +703,30 @@
   border-radius: 0.375rem;
 }
 
+.loading-exit {
+  animation: exit-to-hero 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.loading-exit-bg {
+  animation: 
+    exit-to-hero 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
+    exit-to-hero-bg 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  will-change: transform, opacity, background;
+}
+
+.loading-exit-parallax {
+  animation: 
+    exit-to-hero 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
+    exit-to-hero-parallax 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  will-change: transform, opacity, background, backdrop-filter;
+}
+
+.content-exit {
+  animation: content-fade-out 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
 @media (max-width: 768px) {
   .terminal-bg {
     background-size: 100% 2px;
@@ -589,9 +742,9 @@
 }
 
 .blink-text {
-  animation: blink-text 0.8s ease-in-out 3;
+  animation: blink-text 0.6s ease-in-out 3;
   font-family: var(--font-mono);
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 
 /* VS Code Dark Theme Colors */

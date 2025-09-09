@@ -10,6 +10,7 @@ export default function ParallaxLoading({ onComplete }: ParallaxLoadingProps) {
   const [visibleLetters, setVisibleLetters] = useState(0)
   const [showSubtext, setShowSubtext] = useState(false)
   const [blinkCount, setBlinkCount] = useState(0)
+  const [isExiting, setIsExiting] = useState(false)
   const name = "LUCIO ANDRES"
   const letters = name.split("")
 
@@ -25,25 +26,26 @@ export default function ParallaxLoading({ onComplete }: ParallaxLoadingProps) {
               setBlinkCount(prev => {
                 if (prev >= 3) {
                   clearInterval(blinkTimer)
-                  setTimeout(onComplete, 800)
+                  setIsExiting(true)
+                  setTimeout(onComplete, 1500)
                   return prev
                 }
                 return prev + 1
               })
-            }, 400)
-          }, 2000)
+            }, 300)
+          }, 1200)
           return prev
         }
         return prev + 1
       })
-    }, 150)
+    }, 100)
 
     return () => clearInterval(timer)
   }, [letters.length, onComplete])
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-xl">
-      <div className="text-center">
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-xl ${isExiting ? 'loading-exit-parallax' : ''}`}>
+      <div className={`text-center ${isExiting ? 'content-exit' : ''}`}>
         <div className="mb-6 md:mb-8 font-mono terminal-bg px-4 md:px-0">
           <div className="space-y-3 md:space-y-4 max-w-2xl mx-auto">
             <div className="text-xs md:text-sm code-comment">
