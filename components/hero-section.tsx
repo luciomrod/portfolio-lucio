@@ -55,8 +55,10 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
           const radius = baseRadius + radiusVariation
 
           const rotationSpeed = 1 + i * 0.08
-          const x = 50 + Math.cos(angle + time * rotationSpeed * 0.4) * ((radius / window.innerWidth) * 35)
-          const y = 50 + Math.sin(angle + time * rotationSpeed * 0.4) * ((radius / window.innerHeight) * 35)
+          const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1920
+          const screenHeight = typeof window !== 'undefined' ? window.innerHeight : 1080
+          const x = 50 + Math.cos(angle + time * rotationSpeed * 0.4) * ((radius / screenWidth) * 35)
+          const y = 50 + Math.sin(angle + time * rotationSpeed * 0.4) * ((radius / screenHeight) * 35)
 
           const size = 1.5 + Math.sin(time * 2.5 + i) * 1
           const brightness = 0.3 + Math.sin(time * 1.8 + i * 0.3) * 0.5
@@ -94,11 +96,11 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
                       120,
                       Math.sqrt(
                         Math.pow(
-                          (x - (50 + Math.cos(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / window.innerWidth) * 35)) * window.innerWidth / 100,
+                          (x - (50 + Math.cos(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / screenWidth) * 35)) * screenWidth / 100,
                           2
                         ) +
                         Math.pow(
-                          (y - (50 + Math.sin(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / window.innerHeight) * 35)) * window.innerHeight / 100,
+                          (y - (50 + Math.sin(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / screenHeight) * 35)) * screenHeight / 100,
                           2
                         )
                       )
@@ -106,8 +108,8 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
                     background: `linear-gradient(to bottom, rgba(6, 182, 212, ${brightness * 0.25}), transparent)`,
                     transform: `translate(-50%, -50%) rotate(${
                       Math.atan2(
-                        50 + Math.sin(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / window.innerHeight) * 35 - y,
-                        50 + Math.cos(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / window.innerWidth) * 35 - x
+                        50 + Math.sin(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / screenHeight) * 35 - y,
+                        50 + Math.cos(((i + 1) / 24) * Math.PI * 2 + time * (1 + (i + 1) * 0.08) * 0.4) * ((180 + (i + 1) * 12 + Math.sin(time * 0.8 + (i + 1) * 0.4) * 60) / screenWidth) * 35 - x
                       ) * (180 / Math.PI) + 90
                     }deg)`,
                     transformOrigin: "top",
@@ -164,30 +166,32 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
                 size="lg"
                 className="glass-button text-white font-semibold px-8 py-3 rounded-2xl border-0 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/25"
                 onClick={() => {
-                  const projectsSection = document.getElementById('projects')
-                  if (projectsSection) {
-                    const targetPosition = projectsSection.offsetTop
-                    const startPosition = window.pageYOffset
-                    const distance = targetPosition - startPosition
-                    const duration = 1500 // 1.5 segundos para un scroll más lento
-                    let start: number | null = null
+                  if (typeof window !== 'undefined') {
+                    const projectsSection = document.getElementById('projects')
+                    if (projectsSection) {
+                      const targetPosition = projectsSection.offsetTop
+                      const startPosition = window.pageYOffset
+                      const distance = targetPosition - startPosition
+                      const duration = 1500 // 1.5 segundos para un scroll más lento
+                      let start: number | null = null
 
-                    function animation(currentTime: number) {
-                      if (start === null) start = currentTime
-                      const timeElapsed = currentTime - start
-                      const run = ease(timeElapsed, startPosition, distance, duration)
-                      window.scrollTo(0, run)
-                      if (timeElapsed < duration) requestAnimationFrame(animation)
+                      function animation(currentTime: number) {
+                        if (start === null) start = currentTime
+                        const timeElapsed = currentTime - start
+                        const run = ease(timeElapsed, startPosition, distance, duration)
+                        window.scrollTo(0, run)
+                        if (timeElapsed < duration) requestAnimationFrame(animation)
+                      }
+
+                      function ease(t: number, b: number, c: number, d: number) {
+                        t /= d / 2
+                        if (t < 1) return c / 2 * t * t + b
+                        t--
+                        return -c / 2 * (t * (t - 2) - 1) + b
+                      }
+
+                      requestAnimationFrame(animation)
                     }
-
-                    function ease(t: number, b: number, c: number, d: number) {
-                      t /= d / 2
-                      if (t < 1) return c / 2 * t * t + b
-                      t--
-                      return -c / 2 * (t * (t - 2) - 1) + b
-                    }
-
-                    requestAnimationFrame(animation)
                   }
                 }}
               >
@@ -198,12 +202,14 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
                 size="lg"
                 className="glass border-primary/30 text-primary hover:bg-primary/10 bg-transparent rounded-2xl px-8 py-3 transition-all duration-300 hover:scale-105 hover:border-primary/60"
                 onClick={() => {
-                  const link = document.createElement('a')
-                  link.href = '/CV_Lucio_Frontend.pdf'
-                  link.download = 'CV_Lucio_Frontend.pdf'
-                  document.body.appendChild(link)
-                  link.click()
-                  document.body.removeChild(link)
+                  if (typeof window !== 'undefined') {
+                    const link = document.createElement('a')
+                    link.href = '/CV_Lucio_Frontend.pdf'
+                    link.download = 'CV_Lucio_Frontend.pdf'
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
+                  }
                 }}
               >
                 Descargar CV
