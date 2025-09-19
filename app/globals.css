@@ -442,7 +442,7 @@
   overflow: hidden;
   border-right: 2px solid #D4D4D4;
   white-space: nowrap;
-  animation: typewriter 2.5s steps(25, end), blink-cursor 1.2s step-end infinite;
+  animation: typewriter 1.5s steps(25, end), blink-cursor 1s step-end infinite;
   font-family: var(--font-mono);
   font-weight: 500;
   max-width: 100%;
@@ -452,7 +452,7 @@
   overflow: hidden;
   border-right: 2px solid #6A9955;
   white-space: nowrap;
-  animation: typewriter 3s steps(35, end), blink-cursor 1.5s step-end infinite;
+  animation: typewriter 2s steps(35, end), blink-cursor 1.2s step-end infinite;
   font-family: var(--font-mono);
   font-weight: 400;
   max-width: 100%;
@@ -461,12 +461,12 @@
 @media (max-width: 768px) {
   .typewriter {
     border-right-width: 1px;
-    animation: typewriter 2s steps(20, end), blink-cursor 1s step-end infinite;
+    animation: typewriter 1.2s steps(20, end), blink-cursor 0.8s step-end infinite;
   }
   
   .typewriter-slow {
     border-right-width: 1px;
-    animation: typewriter 2.5s steps(25, end), blink-cursor 1.2s step-end infinite;
+    animation: typewriter 1.5s steps(25, end), blink-cursor 1s step-end infinite;
   }
 }
 
@@ -478,7 +478,7 @@
 }
 
 .fade-pulse {
-  animation: fade-pulse 4s ease-in-out infinite;
+  animation: fade-pulse 2.5s ease-in-out infinite;
   will-change: opacity, transform;
   transform: translateZ(0);
 }
@@ -589,7 +589,7 @@
 }
 
 .smooth-entrance {
-  animation: smooth-entrance 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  animation: smooth-entrance 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   will-change: transform, opacity;
   transform: translateZ(0);
 }
@@ -742,7 +742,7 @@
 }
 
 .blink-text {
-  animation: blink-text 0.6s ease-in-out 3;
+  animation: blink-text 0.4s ease-in-out 3;
   font-family: var(--font-mono);
   animation-delay: 0.1s;
 }
@@ -812,6 +812,21 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .interactive-card {

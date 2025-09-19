@@ -4,7 +4,12 @@ import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  showOnlyGreeting?: boolean
+  showFullContent?: boolean
+}
+
+export default function HeroSection({ showOnlyGreeting = false, showFullContent = true }: HeroSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
   const [time, setTime] = useState(0)
@@ -42,7 +47,7 @@ export default function HeroSection() {
   return (
     <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Center Rotating Particles */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${showOnlyGreeting ? 'opacity-0' : 'opacity-100'}`}>
         {Array.from({ length: 24 }, (_, i) => {
           const angle = (i / 24) * Math.PI * 2
           const baseRadius = 180 + i * 12
@@ -117,7 +122,7 @@ export default function HeroSection() {
 
       {/* Mouse Trail Effect */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className={`absolute inset-0 pointer-events-none opacity-30 transition-opacity duration-500 ${showOnlyGreeting ? 'opacity-0' : 'opacity-100'}`}
         style={{
           background: `
             radial-gradient(
@@ -140,58 +145,95 @@ export default function HeroSection() {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className={`text-center transition-all duration-1000 ${isVisible ? "smooth-appear" : "opacity-0"}`}>
-          <h1 className="text-4xl md:text-6xl font-medium mb-6 text-balance tracking-tight">
+          <h1 className={`text-4xl md:text-6xl font-medium mb-6 text-balance tracking-tight transition-all duration-500 ${showOnlyGreeting ? 'animate-fade-in' : ''}`}>
             <span className="text-white/95">Hola, soy </span>
             <span className="text-primary">Lucio</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-white/60 mb-8 font-light">
-            y creo <span className="text-white/90 font-normal">interfaces</span> dinámicas y minimalistas
-          </p>
+          <div className={`transition-opacity duration-500 ${showFullContent ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-lg md:text-xl text-white/60 mb-8 font-light">
+              Creo <span className="text-white/90 font-normal">interfaces</span> dinámicas y minimalistas
+            </p>
 
-          <p className="text-sm md:text-base text-white/40 mb-12 max-w-xl mx-auto font-light leading-relaxed">
-            Frontend Developer especializado en Next.js, TypeScript y MERN Stack
-          </p>
+            <p className="text-sm md:text-base text-white/40 mb-12 max-w-xl mx-auto font-light leading-relaxed">
+              Frontend Developer especializado en Next.js, TypeScript y MERN Stack
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button
-              size="lg"
-              className="glass-button text-white font-semibold px-8 py-3 rounded-2xl border-0 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/25"
-            >
-              Ver mis proyectos
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="glass border-primary/30 text-primary hover:bg-primary/10 bg-transparent rounded-2xl px-8 py-3 transition-all duration-300 hover:scale-105 hover:border-primary/60"
-            >
-              Descargar CV
-            </Button>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <Button
+                size="lg"
+                className="glass-button text-white font-semibold px-8 py-3 rounded-2xl border-0 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/25"
+                onClick={() => {
+                  const projectsSection = document.getElementById('projects')
+                  if (projectsSection) {
+                    const targetPosition = projectsSection.offsetTop
+                    const startPosition = window.pageYOffset
+                    const distance = targetPosition - startPosition
+                    const duration = 1500 // 1.5 segundos para un scroll más lento
+                    let start: number | null = null
 
-          <div className="flex justify-center gap-6 mb-12">
-            {[
-              { href: "https://github.com/luciomrod", Icon: Github },
-              { href: "https://www.linkedin.com/in/lucioandresmr/", Icon: Linkedin },
-              { href: "mailto:luciomedinawork@gmail.com", Icon: Mail },
-            ].map(({ href, Icon }, index) => (
-              <a
-                key={index}
-                href={href}
-                target={href.startsWith("mailto:") ? undefined : "_blank"}
-                rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="glass-card p-3 rounded-xl text-muted-foreground transition-all duration-300 interactive-card group hover:scale-110 hover:-translate-y-2 hover:rotate-3 hover:shadow-lg hover:shadow-primary/30"
+                    function animation(currentTime: number) {
+                      if (start === null) start = currentTime
+                      const timeElapsed = currentTime - start
+                      const run = ease(timeElapsed, startPosition, distance, duration)
+                      window.scrollTo(0, run)
+                      if (timeElapsed < duration) requestAnimationFrame(animation)
+                    }
+
+                    function ease(t: number, b: number, c: number, d: number) {
+                      t /= d / 2
+                      if (t < 1) return c / 2 * t * t + b
+                      t--
+                      return -c / 2 * (t * (t - 2) - 1) + b
+                    }
+
+                    requestAnimationFrame(animation)
+                  }
+                }}
               >
-                <Icon
-                  size={24}
-                  className="transition-all duration-300 group-hover:text-primary group-hover:scale-110"
-                />
-              </a>
-            ))}
-          </div>
+                Ver mis proyectos
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="glass border-primary/30 text-primary hover:bg-primary/10 bg-transparent rounded-2xl px-8 py-3 transition-all duration-300 hover:scale-105 hover:border-primary/60"
+                onClick={() => {
+                  const link = document.createElement('a')
+                  link.href = '/CV_Lucio_Frontend.pdf'
+                  link.download = 'CV_Lucio_Frontend.pdf'
+                  document.body.appendChild(link)
+                  link.click()
+                  document.body.removeChild(link)
+                }}
+              >
+                Descargar CV
+              </Button>
+            </div>
 
-          <div>
-            <ArrowDown className="text-primary mx-auto animate-bounce" size={32} />
+            <div className="flex justify-center gap-6 mb-12">
+              {[
+                { href: "https://github.com/luciomrod", Icon: Github },
+                { href: "https://www.linkedin.com/in/lucioandresmr/", Icon: Linkedin },
+                { href: "mailto:luciomedinawork@gmail.com", Icon: Mail },
+              ].map(({ href, Icon }, index) => (
+                <a
+                  key={index}
+                  href={href}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  className="glass-card p-3 rounded-xl text-muted-foreground transition-all duration-300 interactive-card group hover:scale-110 hover:-translate-y-2 hover:rotate-3 hover:shadow-lg hover:shadow-primary/30"
+                >
+                  <Icon
+                    size={24}
+                    className="transition-all duration-300 group-hover:text-primary group-hover:scale-110"
+                  />
+                </a>
+              ))}
+            </div>
+
+            <div>
+              <ArrowDown className="text-primary mx-auto animate-bounce" size={32} />
+            </div>
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ export default function AboutSection() {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
             Desarrollador Frontend con 2 años de experiencia práctica en proyectos reales, especializado en Next.js,
-            TypeScript y el stack MERN. Actualmente trabajando en Coder Craft desarrollando interfaces modernas y
+            TypeScript y el stack MERN. Actualmente desarrollando interfaces modernas y
             optimizadas.
           </p>
         </div>

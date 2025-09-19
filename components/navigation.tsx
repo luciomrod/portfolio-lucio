@@ -18,9 +18,9 @@ export default function Navigation() {
 
   const navItems = [
     { label: "Inicio", href: "#" },
-    { label: "Sobre mí", href: "#about" },
-    { label: "Experiencia", href: "#experience" },
     { label: "Proyectos", href: "#projects" },
+    { label: "Experiencia", href: "#experience" },
+    { label: "Sobre mí", href: "#about" },
     { label: "Contacto", href: "#contact" },
   ]
 
@@ -31,9 +31,8 @@ export default function Navigation() {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-center h-16">
           {/* Logo */}
-          <div className="font-mono font-bold text-xl text-primary">{"<LA />"}</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

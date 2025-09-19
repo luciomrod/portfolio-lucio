@@ -27,18 +27,18 @@ export default function ParallaxLoading({ onComplete }: ParallaxLoadingProps) {
                 if (prev >= 3) {
                   clearInterval(blinkTimer)
                   setIsExiting(true)
-                  setTimeout(onComplete, 1500)
+                  setTimeout(onComplete, 800)
                   return prev
                 }
                 return prev + 1
               })
-            }, 300)
-          }, 1200)
+            }, 200)
+          }, 600)
           return prev
         }
         return prev + 1
       })
-    }, 100)
+    }, 80)
 
     return () => clearInterval(timer)
   }, [letters.length, onComplete])

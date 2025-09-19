@@ -22,7 +22,7 @@ export default function ExperienceSection() {
     {
       title: "Desarrollador Freelance",
       company: "Proyectos para profesionales y PYMEs",
-      period: "2023 - 2024",
+      period: "2023 - Actualidad",
       location: "Remoto",
       description: [
         "Desarrollo de landing pages y sitios corporativos responsive",

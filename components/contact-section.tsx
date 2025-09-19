@@ -15,12 +15,6 @@ export default function ContactSection() {
       href: "mailto:luciomedinawork@gmail.com",
     },
     {
-      icon: <Phone className="w-6 h-6" />,
-      label: "Teléfono",
-      value: "+54 9 351 7476788",
-      href: "tel:+5493517476788",
-    },
-    {
       icon: <MapPin className="w-6 h-6" />,
       label: "Ubicación",
       value: "Córdoba Capital, Argentina",
@@ -49,7 +43,7 @@ export default function ContactSection() {
             Hablemos de tu <span className="text-primary">proyecto</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            ¿Tienes una idea? Me encantaría escucharla y ayudarte a hacerla realidad
+            ¿Tenés una idea? Me encantaría escucharla y ayudarte a hacerla realidad
           </p>
         </div>
 

@@ -8,45 +8,46 @@ import { ExternalLink, Github } from "lucide-react"
 export default function ProjectsSection() {
   const projects = [
     {
-      title: "Web para Psicóloga Infantil",
+      title: "Web App para Sello Discográfico",
       description:
-        "Sitio web profesional para psicóloga especializada en niños y adolescentes con diseño moderno y responsive.",
-      technologies: ["Next.js", "Tailwind CSS", "shadcn/ui", "TypeScript"],
-      image: "/modern-psychology-website-for-children.jpg",
-      liveUrl: "#",
-      githubUrl: "#",
+        "Plataforma web para un sello discográfico que permite a los usuarios explorar y escuchar música.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "shadcn"],
+      image: "/concepto.png",
+      liveUrl: "https://concepto-hipnotico.vercel.app/",
+      githubUrl: "https://github.com/luciomrod/concepto-hipnotico",
     },
     {
-      title: "Tienda Online de Hardware",
-      description: "E-commerce completo con carrito de compras, integración de pagos y panel de administración.",
-      technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Stripe"],
-      image: "/modern-hardware-computer-store-ecommerce.jpg",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "LinkHub para Músicos",
-      description:
-        "Plataforma tipo Linktree especializada para músicos con diseño mobile-first y personalización avanzada.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
-      image: "/music-linktree-platform-dark-theme.jpg",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Paredón - Web Institucional",
-      description: "Sitio web corporativo con diseño elegante y optimizado para SEO.",
-      technologies: ["Next.js", "TypeScript", "CSS Modules"],
-      image: "/corporate-institutional-website-modern-design.jpg",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Concesionaria de Autos",
+      title: "Concesionaria de Autos MAF",
       description: "Catálogo online de vehículos con filtros avanzados e integración de API externa.",
-      technologies: ["React.js", "JavaScript", "Bootstrap", "API REST"],
-      image: "/car-dealership-website-catalog-modern.jpg",
-      liveUrl: "#",
+      technologies: ["Next.js", "Typescript", "shadcn", "API REST", "Radix UI"],
+      image: "/maf.jpg",
+      liveUrl: "https://autosmaf.vercel.app/",
+      githubUrl: "https://github.com/luciomrod/autosmaf",
+    },
+    {
+      title: "Web Institucional - Productora de Eventos",
+      description: "Sitio web corporativo con diseño elegante y optimizado para SEO.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn"],
+      image: "/paredon.jpg",
+      liveUrl: "https://paredon-techno.vercel.app/",
+      githubUrl: "https://github.com/luciomrod/paredon-landing",
+    },
+    {
+      title: "Landing Page para Psicóloga",
+      description:
+        "Sitio web para psicóloga especializada en niños y adolescentes con diseño moderno, minimalista y responsive.",
+      technologies: ["React.js", "Javascript", "Framer Motion", "Tailwind CSS"],
+      image: "/psico.jpg",
+      liveUrl: "https://www.lucianabahr-psico.com/",
+      githubUrl: "https://gitlab.com/landingpages3/ivonpsicologialanding",
+    },
+    {
+      title: "Optimización de Web App Gubernamental",
+      description:
+        "Mejoras de UX/UI, implementación de componentes reusables y optimización SEO en el sitio web de la Municipalidad de La Granja.",
+      technologies: ["React.js", "Javascript", "Bootstrap", "Node.js", "Express"],
+      image: "/lagranja.jpg",
+      liveUrl: "https://www.lagranja.gob.ar/",
       githubUrl: "#",
     },
   ]
