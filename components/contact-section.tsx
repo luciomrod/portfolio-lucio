@@ -5,19 +5,22 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function ContactSection() {
+  const { t } = useLanguage()
+
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      label: "Email",
+      label: t("contact.info.email"),
       value: "luciomedinawork@gmail.com",
       href: "mailto:luciomedinawork@gmail.com",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      label: "Ubicación",
-      value: "Córdoba Capital, Argentina",
+      label: t("contact.info.location"),
+      value: t("contact.info.locationValue"),
       href: "#",
     },
   ]
@@ -40,10 +43,10 @@ export default function ContactSection() {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Hablemos de tu <span className="text-primary">proyecto</span>
+            {t("contact.title")} <span className="text-primary">{t("contact.titleHighlight")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            ¿Tenés una idea? Me encantaría escucharla y ayudarte a hacerla realidad
+            {t("contact.description")}
           </p>
         </div>
 
@@ -51,41 +54,41 @@ export default function ContactSection() {
           {/* Contact Form */}
           <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="text-2xl">Envíame un mensaje</CardTitle>
+              <CardTitle className="text-2xl">{t("contact.form.title")}</CardTitle>
             </CardHeader>
             <CardContent>
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Nombre
+                      {t("contact.form.name")}
                     </label>
-                    <Input id="name" placeholder="Tu nombre" />
+                    <Input id="name" placeholder={t("contact.form.namePlaceholder")} />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email
+                      {t("contact.form.email")}
                     </label>
-                    <Input id="email" type="email" placeholder="tu@email.com" />
+                    <Input id="email" type="email" placeholder={t("contact.form.emailPlaceholder")} />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Asunto
+                    {t("contact.form.subject")}
                   </label>
-                  <Input id="subject" placeholder="¿En qué puedo ayudarte?" />
+                  <Input id="subject" placeholder={t("contact.form.subjectPlaceholder")} />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Mensaje
+                    {t("contact.form.message")}
                   </label>
-                  <Textarea id="message" placeholder="Cuéntame sobre tu proyecto..." rows={6} />
+                  <Textarea id="message" placeholder={t("contact.form.messagePlaceholder")} rows={6} />
                 </div>
 
                 <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                  Enviar mensaje
+                  {t("contact.form.send")}
                 </Button>
               </form>
             </CardContent>
@@ -95,7 +98,7 @@ export default function ContactSection() {
           <div className="space-y-8">
             <Card className="bg-card border-border">
               <CardHeader>
-                <CardTitle className="text-2xl">Información de contacto</CardTitle>
+                <CardTitle className="text-2xl">{t("contact.info.title")}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -118,7 +121,7 @@ export default function ContactSection() {
 
             <Card className="bg-card border-border">
               <CardHeader>
-                <CardTitle className="text-2xl">Sígueme</CardTitle>
+                <CardTitle className="text-2xl">{t("contact.social.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex gap-4">

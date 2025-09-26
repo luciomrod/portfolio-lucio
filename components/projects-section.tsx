@@ -4,47 +4,47 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function ProjectsSection() {
+  const { t } = useLanguage()
+
   const projects = [
     {
-      title: "Web App para Sello Discográfico",
-      description:
-        "Plataforma web para un sello discográfico que permite a los usuarios explorar y escuchar música.",
+      title: t("projects.project1.title"),
+      description: t("projects.project1.description"),
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "shadcn"],
       image: "/concepto.png",
       liveUrl: "https://concepto-hipnotico.vercel.app/",
       githubUrl: "https://github.com/luciomrod/concepto-hipnotico",
     },
     {
-      title: "Concesionaria de Autos MAF",
-      description: "Catálogo online de vehículos con filtros avanzados e integración de API externa.",
+      title: t("projects.project2.title"),
+      description: t("projects.project2.description"),
       technologies: ["Next.js", "Typescript", "shadcn", "API REST", "Radix UI"],
       image: "/maf.jpg",
       liveUrl: "https://autosmaf.vercel.app/",
       githubUrl: "https://github.com/luciomrod/autosmaf",
     },
     {
-      title: "Web Institucional - Productora de Eventos",
-      description: "Sitio web corporativo con diseño elegante y optimizado para SEO.",
+      title: t("projects.project3.title"),
+      description: t("projects.project3.description"),
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn"],
       image: "/paredon.jpg",
       liveUrl: "https://paredon-techno.vercel.app/",
       githubUrl: "https://github.com/luciomrod/paredon-landing",
     },
     {
-      title: "Landing Page para Psicóloga",
-      description:
-        "Sitio web para psicóloga especializada en niños y adolescentes con diseño moderno, minimalista y responsive.",
+      title: t("projects.project4.title"),
+      description: t("projects.project4.description"),
       technologies: ["React.js", "Javascript", "Framer Motion", "Tailwind CSS"],
       image: "/psico.jpg",
       liveUrl: "https://www.lucianabahr-psico.com/",
       githubUrl: "https://gitlab.com/landingpages3/ivonpsicologialanding",
     },
     {
-      title: "Optimización de Web App Gubernamental",
-      description:
-        "Mejoras de UX/UI, implementación de componentes reusables y optimización SEO en el sitio web de la Municipalidad de La Granja.",
+      title: t("projects.project5.title"),
+      description: t("projects.project5.description"),
       technologies: ["React.js", "Javascript", "Bootstrap", "Node.js", "Express"],
       image: "/lagranja.jpg",
       liveUrl: "https://www.lagranja.gob.ar/",
@@ -57,10 +57,10 @@ export default function ProjectsSection() {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Mis <span className="text-primary">Proyectos</span>
+            {t("projects.title")} <span className="text-primary">{t("projects.titleHighlight")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Una selección de proyectos que demuestran mis habilidades y experiencia
+            {t("projects.description")}
           </p>
         </div>
 

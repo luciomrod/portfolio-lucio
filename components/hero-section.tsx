@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 interface HeroSectionProps {
   showOnlyGreeting?: boolean
@@ -14,6 +15,37 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
   const [time, setTime] = useState(0)
   const heroRef = useRef<HTMLElement>(null)
+  const { t } = useLanguage()
+
+  const smoothScrollTo = (targetId: string) => {
+    if (typeof window !== 'undefined') {
+      const targetElement = document.getElementById(targetId)
+      if (targetElement) {
+        const targetPosition = targetElement.offsetTop
+        const startPosition = window.pageYOffset
+        const distance = targetPosition - startPosition
+        const duration = 1500 // 1.5 seconds for smooth scroll
+        let start: number | null = null
+
+        function animation(currentTime: number) {
+          if (start === null) start = currentTime
+          const timeElapsed = currentTime - start
+          const run = ease(timeElapsed, startPosition, distance, duration)
+          window.scrollTo(0, run)
+          if (timeElapsed < duration) requestAnimationFrame(animation)
+        }
+
+        function ease(t: number, b: number, c: number, d: number) {
+          t /= d / 2
+          if (t < 1) return c / 2 * t * t + b
+          t--
+          return -c / 2 * (t * (t - 2) - 1) + b
+        }
+
+        requestAnimationFrame(animation)
+      }
+    }
+  }
 
   useEffect(() => {
     setIsVisible(true)
@@ -148,54 +180,26 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
       <div className="container mx-auto px-4 relative z-10">
         <div className={`text-center transition-all duration-1000 ${isVisible ? "smooth-appear" : "opacity-0"}`}>
           <h1 className={`text-4xl md:text-6xl font-medium mb-6 text-balance tracking-tight transition-all duration-500 ${showOnlyGreeting ? 'animate-fade-in' : ''}`}>
-            <span className="text-white/95">Hola, soy </span>
-            <span className="text-primary">Lucio</span>
+            <span className="text-white/95">{t("hero.greeting")}</span>
+            <span className="text-primary">{t("hero.name")}</span>
           </h1>
 
           <div className={`transition-opacity duration-500 ${showFullContent ? 'opacity-100' : 'opacity-0'}`}>
             <p className="text-lg md:text-xl text-white/60 mb-8 font-light">
-              Creo <span className="text-white/90 font-normal">interfaces</span> dinámicas y minimalistas
+              {t("hero.tagline")}
             </p>
 
             <p className="text-sm md:text-base text-white/40 mb-12 max-w-xl mx-auto font-light leading-relaxed">
-              Frontend Developer especializado en Next.js, TypeScript y MERN Stack
+              {t("hero.description")}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button
                 size="lg"
                 className="glass-button text-white font-semibold px-8 py-3 rounded-2xl border-0 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/25"
-                onClick={() => {
-                  if (typeof window !== 'undefined') {
-                    const projectsSection = document.getElementById('projects')
-                    if (projectsSection) {
-                      const targetPosition = projectsSection.offsetTop
-                      const startPosition = window.pageYOffset
-                      const distance = targetPosition - startPosition
-                      const duration = 1500 // 1.5 segundos para un scroll más lento
-                      let start: number | null = null
-
-                      function animation(currentTime: number) {
-                        if (start === null) start = currentTime
-                        const timeElapsed = currentTime - start
-                        const run = ease(timeElapsed, startPosition, distance, duration)
-                        window.scrollTo(0, run)
-                        if (timeElapsed < duration) requestAnimationFrame(animation)
-                      }
-
-                      function ease(t: number, b: number, c: number, d: number) {
-                        t /= d / 2
-                        if (t < 1) return c / 2 * t * t + b
-                        t--
-                        return -c / 2 * (t * (t - 2) - 1) + b
-                      }
-
-                      requestAnimationFrame(animation)
-                    }
-                  }
-                }}
+                onClick={() => smoothScrollTo('projects')}
               >
-                Ver mis proyectos
+                {t("hero.viewProjects")}
               </Button>
               <Button
                 variant="outline"
@@ -212,7 +216,7 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
                   }
                 }}
               >
-                Descargar CV
+                {t("hero.downloadCV")}
               </Button>
             </div>
 
@@ -238,7 +242,11 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
             </div>
 
             <div>
-              <ArrowDown className="text-primary mx-auto animate-bounce" size={32} />
+              <ArrowDown
+                className="text-primary mx-auto animate-bounce cursor-pointer hover:scale-110 transition-transform duration-300"
+                size={32}
+                onClick={() => smoothScrollTo('projects')}
+              />
             </div>
           </div>
         </div>

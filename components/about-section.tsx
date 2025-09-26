@@ -3,8 +3,11 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code, Palette, Zap } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function AboutSection() {
+  const { t } = useLanguage()
+
   const skills = [
     "JavaScript (ES6+)",
     "TypeScript",
@@ -27,18 +30,18 @@ export default function AboutSection() {
   const features = [
     {
       icon: <Code className="w-8 h-8 text-primary" />,
-      title: "Desarrollo Frontend",
-      description: "2 años de experiencia creando interfaces modernas con React, Next.js y TypeScript",
+      title: t("about.feature1.title"),
+      description: t("about.feature1.description"),
     },
     {
       icon: <Palette className="w-8 h-8 text-primary" />,
-      title: "Diseño UI/UX",
-      description: "Especializado en crear experiencias de usuario intuitivas y accesibles",
+      title: t("about.feature2.title"),
+      description: t("about.feature2.description"),
     },
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
-      title: "Optimización",
-      description: "Enfoque en rendimiento, SEO y mejores prácticas de desarrollo",
+      title: t("about.feature3.title"),
+      description: t("about.feature3.description"),
     },
   ]
 
@@ -47,12 +50,10 @@ export default function AboutSection() {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Sobre <span className="text-primary">mí</span>
+            {t("about.title")} <span className="text-primary">{t("about.titleHighlight")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Desarrollador Frontend con 2 años de experiencia práctica en proyectos reales, especializado en Next.js,
-            TypeScript y el stack MERN. Actualmente desarrollando interfaces modernas y
-            optimizadas.
+            {t("about.description")}
           </p>
         </div>
 
@@ -69,7 +70,7 @@ export default function AboutSection() {
         </div>
 
         <div className="bg-card rounded-lg p-8 border border-border">
-          <h3 className="text-2xl font-semibold mb-6 text-center">Tecnologías y Herramientas</h3>
+          <h3 className="text-2xl font-semibold mb-6 text-center">{t("about.skillsTitle")}</h3>
           <div className="flex flex-wrap gap-3 justify-center">
             {skills.map((skill, index) => (
               <Badge

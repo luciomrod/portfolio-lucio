@@ -7,10 +7,12 @@ import AboutSection from "@/components/about-section"
 import ExperienceSection from "@/components/experience-section"
 import ProjectsSection from "@/components/projects-section"
 import ContactSection from "@/components/contact-section"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Home() {
   const [showOnlyGreeting, setShowOnlyGreeting] = useState(true)
   const [showFullContent, setShowFullContent] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,9 +43,9 @@ export default function Home() {
       <footer className={`glass-card border-t border-border/30 py-8 mt-20 transition-opacity duration-500 ${showFullContent ? 'opacity-100' : 'opacity-0'}`}>
         <div className="container mx-auto px-4 text-center">
           <p className="text-muted-foreground">
-            © 2024 Lucio Andrés Medina Rodríguez. Todos los derechos reservados.
+            {t("footer.rights")}
           </p>
-          <p className="text-sm text-muted-foreground mt-2">Desarrollado con Next.js, TypeScript y Tailwind CSS</p>
+          <p className="text-sm text-muted-foreground mt-2">{t("footer.tech")}</p>
         </div>
       </footer>
     </div>

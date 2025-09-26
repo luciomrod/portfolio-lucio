@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Globe } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +19,11 @@ export default function Navigation() {
   }, [])
 
   const navItems = [
-    { label: "Inicio", href: "#" },
-    { label: "Proyectos", href: "#projects" },
-    { label: "Experiencia", href: "#experience" },
-    { label: "Sobre mí", href: "#about" },
-    { label: "Contacto", href: "#contact" },
+    { label: t("nav.home"), href: "#" },
+    { label: t("nav.projects"), href: "#projects" },
+    { label: t("nav.experience"), href: "#experience" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.contact"), href: "#contact" },
   ]
 
   return (
@@ -31,11 +33,9 @@ export default function Navigation() {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center h-16">
-          {/* Logo */}
-
+        <div className="flex items-center justify-between h-16">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             {navItems.map((item) => (
               <a key={item.label} href={item.href} className="text-foreground hover:text-primary transition-colors">
                 {item.label}
@@ -43,10 +43,23 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+          {/* Language Toggle Button */}
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLanguage(language === "en" ? "es" : "en")}
+              className="hidden md:flex items-center gap-2 text-muted-foreground hover:text-primary transition-all duration-300 hover:bg-muted/50 px-3 py-2 rounded-lg"
+            >
+              <Globe size={16} />
+              <span className="text-sm font-medium">{language === "en" ? "ES" : "EN"}</span>
+            </Button>
+
+            {/* Mobile Menu Button */}
+            <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -63,6 +76,22 @@ export default function Navigation() {
                   {item.label}
                 </a>
               ))}
+
+              {/* Mobile Language Toggle */}
+              <div className="px-4 py-2 border-t border-border mt-2 pt-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setLanguage(language === "en" ? "es" : "en")
+                    setIsOpen(false)
+                  }}
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-all duration-300 hover:bg-muted/50 px-3 py-2 rounded-lg w-full justify-start"
+                >
+                  <Globe size={16} />
+                  <span className="text-sm font-medium">{language === "en" ? "Español" : "English"}</span>
+                </Button>
+              </div>
             </div>
           </div>
         )}

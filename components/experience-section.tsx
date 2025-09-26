@@ -3,44 +3,47 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function ExperienceSection() {
+  const { t } = useLanguage()
+
   const experiences = [
     {
-      title: "Frontend Developer Jr",
-      company: "Coder Craft",
-      period: "2024 - Actualidad",
-      location: "Córdoba, Argentina",
+      title: t("experience.job1.title"),
+      company: t("experience.job1.company"),
+      period: t("experience.job1.period"),
+      location: t("experience.job1.location"),
       description: [
-        "Desarrollo de componentes y páginas con Next.js, TypeScript y React.js",
-        "Implementación de interfaces con Tailwind CSS, shadcn/ui y Material UI",
-        "Uso de GitLab para branching, revisión de código y pull requests",
-        "Participación en metodologías ágiles y daily meetings",
+        t("experience.job1.desc1"),
+        t("experience.job1.desc2"),
+        t("experience.job1.desc3"),
+        t("experience.job1.desc4"),
       ],
       technologies: ["Next.js", "TypeScript", "React.js", "Tailwind CSS", "GitLab"],
     },
     {
-      title: "Desarrollador Freelance",
-      company: "Proyectos para profesionales y PYMEs",
-      period: "2023 - Actualidad",
-      location: "Remoto",
+      title: t("experience.job2.title"),
+      company: t("experience.job2.company"),
+      period: t("experience.job2.period"),
+      location: t("experience.job2.location"),
       description: [
-        "Desarrollo de landing pages y sitios corporativos responsive",
-        "Integración con APIs REST y herramientas externas",
-        "Optimización SEO básica",
-        "Gestión directa con clientes y entrega de proyectos",
+        t("experience.job2.desc1"),
+        t("experience.job2.desc2"),
+        t("experience.job2.desc3"),
+        t("experience.job2.desc4"),
       ],
       technologies: ["React.js", "JavaScript", "CSS3", "APIs REST"],
     },
     {
-      title: "Trainee Developer",
-      company: "Proyecto privado",
-      period: "2022",
-      location: "Córdoba, Argentina",
+      title: t("experience.job3.title"),
+      company: t("experience.job3.company"),
+      period: t("experience.job3.period"),
+      location: t("experience.job3.location"),
       description: [
-        "Primer contacto con React.js y JavaScript en entornos reales",
-        "Colaboración en diseño y desarrollo de interfaces",
-        "Aprendizaje de buenas prácticas de desarrollo",
+        t("experience.job3.desc1"),
+        t("experience.job3.desc2"),
+        t("experience.job3.desc3"),
       ],
       technologies: ["React.js", "JavaScript", "HTML5", "CSS3"],
     },
@@ -51,10 +54,10 @@ export default function ExperienceSection() {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Mi <span className="text-primary">Experiencia</span>
+            {t("experience.title")} <span className="text-primary">{t("experience.titleHighlight")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Un recorrido por mi trayectoria profesional en el desarrollo frontend
+            {t("experience.description")}
           </p>
         </div>
 
