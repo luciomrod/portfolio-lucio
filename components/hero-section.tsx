@@ -222,22 +222,39 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
 
             <div className="flex justify-center gap-6 mb-12">
               {[
-                { href: "https://github.com/luciomrod", Icon: Github },
-                { href: "https://www.linkedin.com/in/lucioandresmr/", Icon: Linkedin },
-                { href: "mailto:luciomedinawork@gmail.com", Icon: Mail },
-              ].map(({ href, Icon }, index) => (
-                <a
-                  key={index}
-                  href={href}
-                  target={href.startsWith("mailto:") ? undefined : "_blank"}
-                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  className="glass-card p-3 rounded-xl text-muted-foreground transition-all duration-300 interactive-card group hover:scale-110 hover:-translate-y-2 hover:rotate-3 hover:shadow-lg hover:shadow-primary/30"
-                >
-                  <Icon
-                    size={24}
-                    className="transition-all duration-300 group-hover:text-primary group-hover:scale-110"
-                  />
-                </a>
+                { href: "https://github.com/luciomrod", Icon: Github, isExternal: true },
+                { href: "https://www.linkedin.com/in/lucioandresmr/", Icon: Linkedin, isExternal: true },
+                { href: "mailto:luciomedinawork@gmail.com", Icon: Mail, isExternal: false },
+              ].map(({ href, Icon, isExternal }, index) => (
+                isExternal ? (
+                  <a
+                    key={index}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass-card p-3 rounded-xl text-muted-foreground transition-all duration-300 interactive-card group hover:scale-110 hover:-translate-y-2 hover:rotate-3 hover:shadow-lg hover:shadow-primary/30"
+                  >
+                    <Icon
+                      size={24}
+                      className="transition-all duration-300 group-hover:text-primary group-hover:scale-110"
+                    />
+                  </a>
+                ) : (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.location.href = href
+                      }
+                    }}
+                    className="glass-card p-3 rounded-xl text-muted-foreground transition-all duration-300 interactive-card group hover:scale-110 hover:-translate-y-2 hover:rotate-3 hover:shadow-lg hover:shadow-primary/30 border-0 bg-transparent cursor-pointer"
+                  >
+                    <Icon
+                      size={24}
+                      className="transition-all duration-300 group-hover:text-primary group-hover:scale-110"
+                    />
+                  </button>
+                )
               ))}
             </div>
 

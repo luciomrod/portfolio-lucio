@@ -9,7 +9,8 @@
       "Bash(sed:*)",
       "Bash(taskkill:*)",
       "Bash(\"taskkill\" \"/F\" \"/IM\" \"node.exe\")",
-      "Bash(cmd /c:*)"
+      "Bash(cmd /c:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []
