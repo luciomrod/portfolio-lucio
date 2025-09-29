@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://luciomrod.com/</loc>
+    <lastmod>2024-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luciomrod.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luciomrod.com/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://luciomrod.com/" />
+  </url>
+  <url>
+    <loc>https://luciomrod.com/#projects</loc>
+    <lastmod>2024-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luciomrod.com/#projects?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luciomrod.com/#projects?lang=es" />
+  </url>
+  <url>
+    <loc>https://luciomrod.com/#experience</loc>
+    <lastmod>2024-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luciomrod.com/#experience?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luciomrod.com/#experience?lang=es" />
+  </url>
+  <url>
+    <loc>https://luciomrod.com/#about</loc>
+    <lastmod>2024-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luciomrod.com/#about?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luciomrod.com/#about?lang=es" />
+  </url>
+  <url>
+    <loc>https://luciomrod.com/#contact</loc>
+    <lastmod>2024-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://luciomrod.com/#contact?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://luciomrod.com/#contact?lang=es" />
+  </url>
+</urlset>

@@ -29,10 +29,10 @@ export default function Home() {
         <Navigation />
       </div>
 
-      <main>
+      <main role="main" aria-label="Main content">
         <HeroSection showOnlyGreeting={showOnlyGreeting} showFullContent={showFullContent} />
 
-        <div className={`transition-opacity duration-500 ${showFullContent ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`transition-opacity duration-500 ${showFullContent ? 'opacity-100' : 'opacity-0'}`} aria-hidden={!showFullContent}>
           <ProjectsSection />
           <ExperienceSection />
           <AboutSection />

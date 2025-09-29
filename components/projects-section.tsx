@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import Image from "next/image"
 
 export default function ProjectsSection() {
   const { t } = useLanguage()
@@ -71,19 +72,33 @@ export default function ProjectsSection() {
               className="bg-card border-border hover:border-primary/50 transition-all duration-300 group"
             >
               <div className="relative overflow-hidden rounded-t-lg">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
+                <Image
+                  src={project.image || "/placeholder.jpg"}
+                  alt={`${project.title} - ${t("projects.description")} - Frontend development project by Lucio Andrés`}
+                  width={400}
+                  height={192}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                  priority={index < 3}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                   <Button size="sm" variant="secondary" asChild>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View live demo of ${project.title}`}
+                    >
                       <ExternalLink size={16} />
                     </a>
                   </Button>
                   <Button size="sm" variant="secondary" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View source code of ${project.title} on GitHub`}
+                    >
                       <Github size={16} />
                     </a>
                   </Button>

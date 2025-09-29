@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://luciomrod.com/sitemap.xml
+
+# Allow search engines to crawl all content
+Disallow: /api/
+Disallow: /_next/
+Disallow: /CV_Lucio_Frontend.pdf
+Allow: /Luciomrod CV ENG.pdf
+Allow: /Luciomrod CV ESP.pdf
+
+# Crawl delay (optional)
+Crawl-delay: 1
