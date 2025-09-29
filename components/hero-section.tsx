@@ -15,7 +15,7 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
   const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
   const [time, setTime] = useState(0)
   const heroRef = useRef<HTMLElement>(null)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const smoothScrollTo = (targetId: string) => {
     if (typeof window !== 'undefined') {
@@ -207,9 +207,10 @@ export default function HeroSection({ showOnlyGreeting = false, showFullContent 
                 className="glass border-primary/30 text-primary hover:bg-primary/10 bg-transparent rounded-2xl px-8 py-3 transition-all duration-300 hover:scale-105 hover:border-primary/60"
                 onClick={() => {
                   if (typeof window !== 'undefined') {
+                    const cvFile = language === 'en' ? 'Luciomrod CV ENG.pdf' : 'Luciomrod CV ESP.pdf'
                     const link = document.createElement('a')
-                    link.href = '/CV_Lucio_Frontend.pdf'
-                    link.download = 'CV_Lucio_Frontend.pdf'
+                    link.href = `/${cvFile}`
+                    link.download = cvFile
                     document.body.appendChild(link)
                     link.click()
                     document.body.removeChild(link)
