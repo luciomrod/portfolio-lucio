@@ -34,8 +34,12 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
+          {/* Left spacer */}
+          <div className="hidden md:flex flex-1">
+          </div>
+
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <a key={item.label} href={item.href} className="text-foreground hover:text-primary transition-colors">
                 {item.label}
@@ -43,8 +47,8 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Language Toggle Button */}
-          <div className="flex items-center gap-4">
+          {/* Language Toggle Button - Right aligned */}
+          <div className="flex items-center gap-4 flex-1 justify-end">
             <Button
               variant="ghost"
               size="sm"
