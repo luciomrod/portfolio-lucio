@@ -15,6 +15,7 @@ export default function AboutSection() {
     "Next.js",
     "Node.js",
     "Express.js",
+    "Jest",
     "MongoDB",
     "Tailwind CSS",
     "shadcn/ui",
