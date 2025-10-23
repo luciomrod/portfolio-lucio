@@ -180,6 +180,8 @@ const translations = {
     "projects.project4.description": "Sitio web para psicóloga especializada en niños y adolescentes con diseño moderno, minimalista y responsive.",
     "projects.project5.title": "Optimización de Web App Gubernamental",
     "projects.project5.description": "Mejoras de UX/UI, implementación de componentes reusables y optimización SEO en el sitio web de la Municipalidad de La Granja.",
+    "projects.project6.title": "Government Web App Optimization",
+    "projects.project6.description": "UX/UI improvements, implementation of reusable components and SEO optimization on the Municipality of La Granja website.",
 
     // Contact Section
     "contact.title": "Hablemos de tu",
