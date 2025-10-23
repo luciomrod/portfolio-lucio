@@ -14,13 +14,13 @@ export default function ProjectsSection() {
     {
       title: t("projects.project1.title"),
       description: t("projects.project1.description"),
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "shadcn"],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Jest", "shadcn"],
       image: "/altagglio.png",
     },
     {
       title: t("projects.project2.title"),
       description: t("projects.project2.description"),
-      technologies: ["Next.js", "Typescript", "shadcn", "API REST", "Radix UI"],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Radix UI", "shadcn"],
       image: "/concepto.png",
       liveUrl: "https://conceptohipnotico.com/",
       githubUrl: "https://github.com/luciomrod/concepto-hipnotico",
@@ -28,7 +28,7 @@ export default function ProjectsSection() {
     {
       title: t("projects.project3.title"),
       description: t("projects.project3.description"),
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn"],
+      technologies: ["Next.js", "Typescript", "shadcn", "API REST", "Radix UI"],
       image: "/maf.jpg",
       liveUrl: "https://autosmaf.vercel.app/",
       githubUrl: "https://github.com/luciomrod/autosmaf",
@@ -36,7 +36,7 @@ export default function ProjectsSection() {
     {
       title: t("projects.project4.title"),
       description: t("projects.project4.description"),
-      technologies: ["React.js", "Javascript", "Framer Motion", "Tailwind CSS"],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn"],
       image: "/paredon.jpg",
       liveUrl: "https://paredon-techno.vercel.app/",
       githubUrl: "https://github.com/luciomrod/paredon-landing",
@@ -44,7 +44,7 @@ export default function ProjectsSection() {
     {
       title: t("projects.project5.title"),
       description: t("projects.project5.description"),
-      technologies: ["React.js", "Javascript", "Bootstrap", "Node.js", "Express"],
+      technologies: ["React.js", "Javascript", "Framer Motion", "Tailwind CSS"],
       image: "/psico.jpg",
       liveUrl: "https://www.lucianabahr-psico.com/",
       githubUrl: "https://gitlab.com/landingpages3/ivonpsicologialanding",
@@ -52,7 +52,7 @@ export default function ProjectsSection() {
         {
       title: t("projects.project6.title"),
       description: t("projects.project6.description"),
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Jest", "shadcn"],
+      technologies: ["React.js", "Javascript", "Bootstrap", "Node.js", "Express"],
       image: "/lagranja.jpg",
       liveUrl: "#https://www.lagranja.gob.ar/",
       githubUrl: "#",
