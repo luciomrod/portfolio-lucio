@@ -13,7 +13,7 @@ export default function StructuredData() {
     "alternateName": ["Lucio Andrés", "Lucio Medina", "Luciomrod"],
     "url": "https://luciomrod.com",
     "image": "https://luciomrod.com/lucio.jpg",
-    "jobTitle": language === "en" ? "Frontend Developer" : "Desarrollador Frontend",
+    "jobTitle": language === "en" ? "Fullstack Developer" : "Desarrollador Fullstack",
     "worksFor": {
       "@type": "Organization",
       "name": "Coder Craft"
@@ -23,12 +23,22 @@ export default function StructuredData() {
       "React.js",
       "TypeScript",
       "JavaScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
       "MERN Stack",
+      "Fullstack Development",
+      "Backend Development",
       "Frontend Development",
+      "API Integration",
       "UI/UX Design",
       "Tailwind CSS",
       "Web Development",
-      "Responsive Design"
+      "Responsive Design",
+      "Jest",
+      "Postman",
+      "Mercado Pago",
+      "Resend"
     ],
     "alumniOf": {
       "@type": "Organization",
@@ -53,11 +63,11 @@ export default function StructuredData() {
     "@id": "https://luciomrod.com/#website",
     "url": "https://luciomrod.com",
     "name": language === "en"
-      ? "Lucio Andrés - Frontend Developer Portfolio"
-      : "Lucio Andrés - Portfolio de Desarrollador Frontend",
+      ? "Lucio Andrés - Fullstack Developer Portfolio"
+      : "Lucio Andrés - Portfolio de Desarrollador Fullstack",
     "description": language === "en"
-      ? "Portfolio of Lucio Andrés Medina Rodríguez - Frontend Developer specialized in Next.js, TypeScript and MERN Stack"
-      : "Portfolio de Lucio Andrés Medina Rodríguez - Desarrollador Frontend especializado en Next.js, TypeScript y MERN Stack",
+      ? "Portfolio of Lucio Andrés Medina Rodríguez - Fullstack Developer specialized in React, Next.js, TypeScript, Node.js, Express and MongoDB. 2+ years of experience creating modern, scalable web applications."
+      : "Portfolio de Lucio Andrés Medina Rodríguez - Desarrollador Fullstack especializado en React, Next.js, TypeScript, Node.js, Express y MongoDB. Más de dos años de experiencia creando aplicaciones web modernas y escalables.",
     "inLanguage": [language === "en" ? "en-US" : "es-ES"],
     "author": {
       "@id": "https://luciomrod.com/#person"
@@ -77,19 +87,19 @@ export default function StructuredData() {
     "@type": "CreativeWork",
     "@id": "https://luciomrod.com/#portfolio",
     "name": language === "en"
-      ? "Frontend Developer Portfolio"
-      : "Portfolio de Desarrollador Frontend",
+      ? "Fullstack Developer Portfolio"
+      : "Portfolio de Desarrollador Fullstack",
     "description": language === "en"
-      ? "Professional portfolio showcasing frontend development projects and experience"
-      : "Portfolio profesional que muestra proyectos y experiencia en desarrollo frontend",
+      ? "Professional portfolio showcasing fullstack development projects and experience. Creating modern, scalable web applications from intuitive interfaces to robust backends."
+      : "Portfolio profesional que muestra proyectos y experiencia en desarrollo fullstack. Creando aplicaciones web modernas y escalables desde interfaces intuitivas hasta backends robustos.",
     "author": {
       "@id": "https://luciomrod.com/#person"
     },
     "dateCreated": "2023-01-01",
     "dateModified": "2024-09-28",
     "keywords": language === "en"
-      ? "Frontend Development, Next.js, React, TypeScript, MERN Stack, Web Development"
-      : "Desarrollo Frontend, Next.js, React, TypeScript, MERN Stack, Desarrollo Web",
+      ? "Fullstack Development, Next.js, React, TypeScript, Node.js, Express, MongoDB, MERN Stack, Web Development, API Integration"
+      : "Desarrollo Fullstack, Next.js, React, TypeScript, Node.js, Express, MongoDB, MERN Stack, Desarrollo Web, Integración de APIs",
     "genre": "Portfolio",
     "inLanguage": language === "en" ? "en-US" : "es-ES"
   }
@@ -99,11 +109,11 @@ export default function StructuredData() {
     "@type": "ProfessionalService",
     "@id": "https://luciomrod.com/#service",
     "name": language === "en"
-      ? "Frontend Development Services"
-      : "Servicios de Desarrollo Frontend",
+      ? "Fullstack Development Services"
+      : "Servicios de Desarrollo Fullstack",
     "description": language === "en"
-      ? "Professional frontend development services specializing in modern web technologies"
-      : "Servicios profesionales de desarrollo frontend especializados en tecnologías web modernas",
+      ? "Professional fullstack development services specializing in modern web technologies. From intuitive interfaces to robust and optimized backends."
+      : "Servicios profesionales de desarrollo fullstack especializados en tecnologías web modernas. Desde interfaces intuitivas hasta backends robustos y optimizados.",
     "provider": {
       "@id": "https://luciomrod.com/#person"
     },
@@ -112,13 +122,13 @@ export default function StructuredData() {
       "name": "Argentina"
     },
     "serviceType": language === "en"
-      ? "Frontend Development"
-      : "Desarrollo Frontend",
+      ? "Fullstack Development"
+      : "Desarrollo Fullstack",
     "offers": {
       "@type": "Offer",
       "description": language === "en"
-        ? "Custom web application development using Next.js, React, and TypeScript"
-        : "Desarrollo de aplicaciones web personalizadas usando Next.js, React y TypeScript"
+        ? "Custom web application development using React, Next.js, TypeScript, Node.js, Express and MongoDB. Fullstack projects, institutional landing pages and platforms with external API integration."
+        : "Desarrollo de aplicaciones web personalizadas usando React, Next.js, TypeScript, Node.js, Express y MongoDB. Proyectos fullstack, landing pages institucionales y plataformas con integración de APIs externas."
     }
   }
 

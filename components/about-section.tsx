@@ -15,8 +15,11 @@ export default function AboutSection() {
     "Next.js",
     "Node.js",
     "Express.js",
-    "Jest",
     "MongoDB",
+    "Jest",
+    "Postman",
+    "Lighthouse",
+    "axe DevTools",
     "Tailwind CSS",
     "shadcn/ui",
     "Material UI",
@@ -25,6 +28,8 @@ export default function AboutSection() {
     "GitHub",
     "GitLab",
     "APIs REST",
+    "Mercado Pago",
+    "Resend",
     "Figma",
   ]
 

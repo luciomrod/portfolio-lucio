@@ -80,7 +80,7 @@ export default function ProjectsSection() {
               <div className="relative overflow-hidden rounded-t-lg">
                 <Image
                   src={project.image || "/placeholder.jpg"}
-                  alt={`${project.title} - ${t("projects.description")} - Frontend development project by Lucio Andrés`}
+                  alt={`${project.title} - ${t("projects.description")} - Fullstack development project by Lucio Andrés`}
                   width={400}
                   height={192}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
