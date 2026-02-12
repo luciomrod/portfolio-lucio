@@ -11,32 +11,32 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "Lucio Andrés - Fullstack Developer Portfolio",
-    template: "%s | Lucio Andrés - Fullstack Developer"
+    default: "Lucio Andrés - Frontend Developer Portfolio",
+    template: "%s | Lucio Andrés - Frontend Developer"
   },
-  description: "Portfolio of Lucio Andrés Medina Rodríguez - Fullstack Developer specialized in React, Next.js, TypeScript, Node.js, Express and MongoDB. 2+ years of experience creating modern, scalable web applications focused on user experience.",
+  description: "Portfolio of Lucio Andrés Medina Rodríguez - Frontend Developer specialized in React.js, Next.js and TypeScript. Building scalable, performant and accessible web applications with modern UI libraries and clean architecture.",
   keywords: [
-    "Fullstack Developer",
-    "Next.js Developer",
+    "Frontend Developer",
     "React Developer",
+    "Next.js Developer",
     "TypeScript Developer",
-    "Node.js Developer",
-    "Express Developer",
-    "MongoDB Developer",
-    "MERN Stack",
-    "Web Developer",
-    "Full Stack Developer",
+    "React.js",
+    "Next.js",
     "JavaScript Developer",
     "Tailwind CSS",
+    "Redux Toolkit",
+    "shadcn/ui",
+    "Radix UI",
+    "Web Developer",
+    "UI Developer",
     "Portfolio",
     "Lucio Andrés",
     "Lucio Medina",
-    "Web Development",
-    "Backend Development",
     "Frontend Development",
-    "API Integration",
-    "Córdoba Argentina",
-    "Freelance Developer"
+    "Responsive Design",
+    "Accessibility",
+    "Performance Optimization",
+    "Córdoba Argentina"
   ],
   authors: [{ name: "Lucio Andrés Medina Rodríguez", url: "https://luciomrod.com" }],
   creator: "Lucio Andrés Medina Rodríguez",
@@ -57,23 +57,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["es_ES"],
     url: "https://luciomrod.com",
-    siteName: "Lucio Andrés - Fullstack Developer Portfolio",
-    title: "Lucio Andrés - Fullstack Developer Portfolio",
-    description: "Fullstack Developer specialized in React, Next.js, TypeScript, Node.js, Express and MongoDB. 2+ years of experience creating modern, scalable web applications focused on user experience.",
+    siteName: "Lucio Andrés - Frontend Developer Portfolio",
+    title: "Lucio Andrés - Frontend Developer Portfolio",
+    description: "Frontend Developer specialized in React.js, Next.js and TypeScript. Building scalable, performant and accessible web applications with modern UI libraries and clean architecture.",
     images: [
       {
         url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Lucio Andrés - Fullstack Developer Portfolio",
+        alt: "Lucio Andrés - Frontend Developer Portfolio",
         type: "image/png"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lucio Andrés - Fullstack Developer Portfolio",
-    description: "Fullstack Developer specialized in React, Next.js, TypeScript, Node.js, Express and MongoDB. 2+ years of experience creating modern, scalable web applications focused on user experience.",
+    title: "Lucio Andrés - Frontend Developer Portfolio",
+    description: "Frontend Developer specialized in React.js, Next.js and TypeScript. Building scalable, performant and accessible web applications with modern UI libraries and clean architecture.",
     images: ["/logo.png"],
     creator: "@luciomrod"
   },

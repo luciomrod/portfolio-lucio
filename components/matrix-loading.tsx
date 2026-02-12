@@ -98,7 +98,7 @@ export default function MatrixLoading({ onComplete }: MatrixLoadingProps) {
                 <div className="mt-3 md:mt-4 space-y-2 md:space-y-3 smooth-entrance">
                   <div className="text-xs md:text-sm font-mono">
                     <span className="code-comment">// </span>
-                    <span className="typewriter-slow code-comment">Version 2.0 - Full Stack Developer</span>
+                    <span className="typewriter-slow code-comment">Version 2.0 - Frontend Developer</span>
                     <span className="cursor">|</span>
                   </div>
                   <div className="text-xs md:text-sm font-mono space-y-1">

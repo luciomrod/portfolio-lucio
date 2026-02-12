@@ -1,7 +1,7 @@
 {
-  "name": "Lucio Andrés - Fullstack Developer Portfolio",
+  "name": "Lucio Andrés - Frontend Developer Portfolio",
   "short_name": "Lucio Portfolio",
-  "description": "Fullstack Developer specialized in React, Next.js, TypeScript, Node.js, Express and MongoDB",
+  "description": "Frontend Developer specialized in React.js, Next.js and TypeScript. Scalable, performant and accessible web applications",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",

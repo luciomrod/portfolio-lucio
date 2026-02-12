@@ -87,7 +87,7 @@ export default function ParallaxLoading({ onComplete }: ParallaxLoadingProps) {
             <div className="text-xs md:text-sm max-w-lg mx-auto">
               <span className="code-comment">// Especialidad: </span>
               <span className={`typewriter-slow code-string ${blinkCount > 0 ? 'blink-text' : ''}`}>
-                Full Stack Developer
+                Frontend Developer
               </span>
             </div>
             <div className="flex justify-center items-center space-x-2 text-xs md:text-sm">

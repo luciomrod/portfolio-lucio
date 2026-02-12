@@ -10,7 +10,10 @@
       "Bash(taskkill:*)",
       "Bash(\"taskkill\" \"/F\" \"/IM\" \"node.exe\")",
       "Bash(cmd /c:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx tsc:*)",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": [],
     "ask": []
